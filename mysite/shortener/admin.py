@@ -2,9 +2,9 @@ from django.contrib import admin
 # Register your models here.
 from .models import UrlRecord
 # change admin interface
-admin.site.index_title = "Shortener admin"
-admin.site.site_header = "Shortener admin"
-admin.site.site_title = "Shortener admin"
+admin.site.index_title = "Simple URL Shortener admin"
+admin.site.site_header = "Simple URL Shortener admin"
+admin.site.site_title = "Simple URL Shortener admin"
 admin.site.site_url = "/"
 
 
