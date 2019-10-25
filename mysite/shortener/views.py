@@ -28,7 +28,7 @@ def index(request):
 
 
 def resolve(request, urltag):
-    if len(urltag) != 5:
+    if len(urltag) != 4:
         raise Http404
     url_record = get_object_or_404(UrlRecord, pk=urltag)
     original_url = url_record.original_url

@@ -4,7 +4,7 @@ from random import choices
 
 
 def short_url_generate():
-    short = choices(ascii_letters, k=5)
+    short = choices(ascii_letters, k=4)
     short = "".join(short)
     return short
 
@@ -12,7 +12,7 @@ def short_url_generate():
 class UrlRecord(models.Model):
     original_url = models.URLField( blank=False, null=False)
     short_url = models.CharField(
-        primary_key=True, editable=False, max_length=5, default=short_url_generate)
+        primary_key=True, editable=False, max_length=4, default=short_url_generate)
     date_created = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
