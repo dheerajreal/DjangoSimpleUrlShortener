@@ -1,0 +1,7 @@
+{% extends "shortener/base.html" %} {% block content %}
+<br> {% if urltag %}
+<br> Here is your <a href="{% url 'resolve' urltag %}">DESTINATION</a>
+<br> {% else %}
+<br>
+<p class="text-danger">an error occurred</p>
+<br>{% endif %} {% endblock %}
