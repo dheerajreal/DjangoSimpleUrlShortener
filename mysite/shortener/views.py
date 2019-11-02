@@ -10,8 +10,10 @@ def index(request):
     if form.is_valid():
         original_url = form.cleaned_data["original_url"]
         try:
+            # see if url already exists in database
             url_record = UrlRecord.objects.get(original_url=original_url)
         except:
+            # create in database and fetch
             form.save()
             url_record = get_object_or_404(UrlRecord, original_url=original_url)
 
