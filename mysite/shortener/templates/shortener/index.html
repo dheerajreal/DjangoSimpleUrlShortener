@@ -2,8 +2,11 @@
 
 <h1>Welcome to Simple URL Shortener</h1>
 <br> {% if form %}
-<form action="" method="post">{% csrf_token %} {{form.as_table}}
-    <button class="btn btn-primary btn-sm" type="submit">
+<form class="form-group" action="" method="post">
+    {% csrf_token %}
+    <br> {{form.as_table}}
+    <br>
+    <button class="btn btn-primary " type="submit">
                 Shorten
     </button>
 
