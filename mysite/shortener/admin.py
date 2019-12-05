@@ -10,7 +10,7 @@ admin.site.site_url = "/"
 
 class UrlRecordAdmin(admin.ModelAdmin):
     # things to go on admin page
-    list_display = ["original_url", "short_url"]
+    list_display = ["original_url", "short_url", "date_created"]
     # can filter by date_created
     list_filter = ["date_created"]
     # allow search
