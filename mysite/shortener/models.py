@@ -1,5 +1,5 @@
 from django.db import models
-from .utilities import short_url_generate, URLTAG_LENGTH
+from .utilities import URLTAG_LENGTH
 
 
 class UrlRecord(models.Model):
