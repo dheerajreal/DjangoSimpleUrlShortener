@@ -2,7 +2,10 @@
 <br> {% if urltag %}
 <br>
 <h1>Here is your <a href="{% url 'resolve' urltag %}">DESTINATION</a></h1>
+<br>
+<p>{{ request.scheme }}://{{request.get_host}}/{{urltag}}</p>
 <br> {% else %}
 <br>
+
 <p class="text-danger">an error occurred</p>
 <br>{% endif %} {% endblock %}
