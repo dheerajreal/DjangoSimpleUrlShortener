@@ -10,6 +10,7 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/2.2/ref/settings/
 """
 
+import dj_database_url
 import os
 
 from decouple import Csv, config
@@ -138,6 +139,11 @@ USE_TZ = True
 
 # static and media urls
 STATIC_URL = '/static/'
-STATIC_ROOT = os.path.join(BASE_DIR, 'staticroot')
-MEDIA_URL = '/media/'
-MEDIA_ROOT = os.path.join(BASE_DIR, 'mediaroot')
+# STATIC_ROOT = os.path.join(BASE_DIR, 'staticroot')
+# MEDIA_URL = '/media/'
+# MEDIA_ROOT = os.path.join(BASE_DIR, 'mediaroot')
+
+
+# for DATABASE_URL
+prod_db = dj_database_url.config(conn_max_age=500)
+DATABASES['default'].update(prod_db)
