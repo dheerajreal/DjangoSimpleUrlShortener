@@ -10,8 +10,19 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/2.2/ref/settings/
 """
 
-from .variables import config_var
 import os
+
+from decouple import Csv, config
+
+# some deployment options
+DEBUG = config('DEBUG', default=False, cast=bool)
+TEMPLATE_DEBUG = DEBUG
+SECRET_KEY = config('SECRET_KEY', default="whatever_secret_key_for_prod")
+ALLOWED_HOSTS = config(
+    'ALLOWED_HOSTS',
+    default="127.0.0.1, localhost",
+    cast=Csv()
+)
 
 
 # pick one of these
@@ -28,12 +39,11 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # See https://docs.djangoproject.com/en/2.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = config_var["SECRET_KEY"]
-
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = config_var["DEBUG"]
 
-ALLOWED_HOSTS = []
+# SECRET_KEY = "whatever_secret_key_for _prod"
+# DEBUG = False
+# ALLOWED_HOSTS = []
 
 
 # Application definition
@@ -126,4 +136,8 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/2.2/howto/static-files/
 
+# static and media urls
 STATIC_URL = '/static/'
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticroot')
+MEDIA_URL = '/media/'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'mediaroot')
