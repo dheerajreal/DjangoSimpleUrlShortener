@@ -1,8 +1,11 @@
-from django.shortcuts import render, redirect, get_object_or_404
+from django.conf import settings
 from django.http import Http404
+from django.shortcuts import get_object_or_404, redirect, render
+
 from .forms import UrlForm
 from .models import UrlRecord
-from .utilities import short_url_generate, URLTAG_LENGTH
+from .utilities import short_url_generate
+
 # Create your views here.
 
 
@@ -41,7 +44,7 @@ def index(request):
 
 
 def resolve(request, urltag):
-    if len(urltag) != URLTAG_LENGTH:
+    if len(urltag) != settings.URLTAG_LENGTH:
         raise Http404
     url_record = get_object_or_404(UrlRecord, pk=urltag)
     original_url = url_record.original_url

@@ -13,6 +13,13 @@ https://docs.djangoproject.com/en/2.2/ref/settings/
 from .variables import config_var
 import os
 
+
+# pick one of these
+# 4 characters=62**4=14,776,336 combinations
+# 5 characters=62**5=916,132,832 combinations
+# 6 characters=62**6=56,800,235,584 combinations
+URLTAG_LENGTH = 4
+
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
